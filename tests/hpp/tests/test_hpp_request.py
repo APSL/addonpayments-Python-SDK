@@ -23,3 +23,12 @@ class TestHppRequest:
         expected_hash = '7aafc6dcbf83bf3cb8519d90ecd623974fd06cf3'
         valid_hpp_request_storage_enabled.hash(self.secret)
         assert valid_hpp_request_storage_enabled.sha1hash == expected_hash
+
+
+    def test_secure2(self, valid_hpp_request_secure2):
+        """
+        Test 3D secure 2 payment.
+        :param valid_hpp_request_secure2: PaymentRequest
+        """
+        valid_hpp_request_secure2.hash(self.secret)
+        assert True

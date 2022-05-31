@@ -10,7 +10,8 @@ from decouple import config
 from addonpayments.hpp.card_storage.requests import CardStorageRequest
 from addonpayments.hpp.payment.requests import PaymentRequest
 from addonpayments.hpp.utils import JsonUtils
-from tests.hpp.utils import get_sample_path, only_mandatory_hpp_request, hpp_request_storage_enabled
+from tests.hpp.utils import get_sample_path, only_mandatory_hpp_request, hpp_request_storage_enabled,\
+    hpp_request_secure2
 
 from addonpayments.api.elements import (Cvn, CardWithCvn, Recurring, Mpi, DccInfoWithAmount, PaymentData, CardWithRef,
                                         CardRef, DccInfo, DccInfoWithRateType, Address, PhoneNumbers, Payer, Card)
@@ -19,6 +20,12 @@ from addonpayments.api.elements import (Cvn, CardWithCvn, Recurring, Mpi, DccInf
 @pytest.fixture()
 def valid_hpp_request():
     data = only_mandatory_hpp_request()
+    yield PaymentRequest(**data)
+
+
+@pytest.fixture()
+def valid_hpp_request_secure2():
+    data = hpp_request_secure2()
     yield PaymentRequest(**data)
 
 

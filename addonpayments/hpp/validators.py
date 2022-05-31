@@ -249,3 +249,108 @@ class HppValidator(object):
         Validate.validate_str(attribute.name, value)
         Validate.validate_length_range(attribute.name, value, 0, 30)
         Validate.validate_regex(attribute.name, value, r'^[a-zA-Z0-9\-\_\.]*$', 'alphanumeric and -_.')
+
+    @staticmethod
+    def hpp_customer_email(instance, attribute, value):
+        """
+        Validator hpp_customer_email:
+            * Type: Optional
+            * Format: a-zA-Z0-9 “”.-_,+@!#$%&'*+/=?^`{|}~-
+            * Length: 0-254
+        :param instance: object
+        :param attribute:
+        :param value:
+        """
+        if not value:
+            return
+        Validate.validate_str(attribute.name, value)
+        Validate.validate_length_range(attribute.name, value, 0, 254)
+        Validate.validate_regex(
+            attribute.name, value, r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", 'alphanumeric and “”.-_,+@!#$%&*+/=?^_`{|}~-'
+        )
+
+    @staticmethod
+    def hpp_customer_phonenumber_mobile(instance, attribute, value):
+        """
+        Validator for hpp_customer_phonenumber_mobile:
+            * Type: Optional
+            * Format: 0-9 |
+            * Length: 0-60
+        :param instance: object
+        :param attribute:
+        :param value:
+        """
+        if not value:
+            return
+        Validate.validate_str(attribute.name, value)
+        Validate.validate_length_range(attribute.name, value, 0, 60)
+        Validate.validate_regex(
+            attribute.name,
+            value,
+            r'^[0-9 |]*$',
+            'numeric and |'
+        )
+
+    @staticmethod
+    def hpp_billing_street(instance, attribute, value):
+        """
+        Validator for hpp_billing_street attribute:
+            * Type:     Optional
+            * Format:   a-zA-Z0-9 '",+“”.-_&\/@!?%()*:£$&€#[]|=
+                        ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷ø¤ùúûüýþÿŒŽšœžŸ¥
+            * Length:   0-50
+        :param instance: object
+        :param attribute:
+        :param value:
+        """
+        if not value:
+            return
+        Validate.validate_str(attribute.name, value)
+        Validate.validate_length_range(attribute.name, value, 0, 50)
+        Validate.validate_regex(
+            attribute.name,
+            value,
+            r'^[a-zA-Z0-9 \'\",\+“”.\_\-&\\/@!?%()\*\:£$&€#\[\]|=\;'
+            r'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷ø¤ùúûüýþÿŒŽšœžŸ¥]*$',
+            'alphanumeric and \'",+“”.-_&\\/@!?%()*:£$&€#[]|='
+            'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷ø¤ùúûüýþÿŒŽšœžŸ¥ and spaces'
+        )
+
+    @staticmethod
+    def city(instance, attribute, value):
+        """
+        Validator for city attribute:
+            * Type: Optional
+            * Format: a-zA-Z0-9“”,.-|
+            * Length: 0-40
+        :param instance: object
+        :param attribute:
+        :param value:
+        """
+        if not value:
+            return
+        Validate.validate_str(attribute.name, value)
+        Validate.validate_length_range(attribute.name, value, 0, 40)
+        Validate.validate_regex(attribute.name, value, r"^[a-zA-Z\u0080-\u024F]+(?:. |-| |')*([1-9a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$", 'alphanumeric and “”,.-\u0080-\u024F')
+
+    @staticmethod
+    def hpp_billing_postalcode(instance, attribute, value):
+        """
+        Validator for hpp_billing_postalcode attribute:
+            * Type: Optional
+            * Format: a-zA-Z0-9 “”,.-|
+            * Length: 0-16
+        :param instance: object
+        :param attribute:
+        :param value:
+        """
+        if not value:
+            return
+        Validate.validate_str(attribute.name, value)
+        Validate.validate_length_range(attribute.name, value, 0, 16)
+        Validate.validate_regex(
+            attribute.name,
+            value,
+            r'^[a-zA-Z0-9 “”,.\-/|]*$',
+            'alphanumeric and “”,.-/| and spaces'
+        )

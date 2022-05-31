@@ -52,6 +52,16 @@ class HppRequest(HashMixin, DictMixin):
     card_payment_button = Field(default='', validator=Validator.card_payment_button)
     supplementary_data = Field(default={}, validator=Validator.supplementary_data)
 
+    # 3D Secure 2
+    hpp_customer_email = Field(default='', validator=Validator.hpp_customer_email)
+    hpp_customer_phonenumber_mobile = Field(default='', validator=Validator.hpp_customer_phonenumber_mobile)
+    hpp_billing_street1 = Field(default='', validator=Validator.hpp_billing_street)
+    hpp_billing_street2 = Field(default='', validator=Validator.hpp_billing_street)
+    hpp_billing_street3 = Field(default='', validator=Validator.hpp_billing_street)
+    hpp_billing_city = Field(default='', validator=Validator.city)
+    hpp_billing_postalcode = Field(default='', validator=Validator.hpp_billing_postalcode)
+    hpp_billing_country = Field(default='', validator=Validator.country)
+
     def __attrs_post_init__(self):
         """
         This method will be called after the class is fully initialized.

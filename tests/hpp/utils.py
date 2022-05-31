@@ -24,6 +24,25 @@ def only_mandatory_hpp_request():
     }
 
 
+def hpp_request_secure2():
+    return {
+        'merchant_id': MERCHANT_ID,
+        'amount': AMOUNT,
+        'currency': CURRENCY,
+        'auto_settle_flag': False,
+        'timestamp': TIMESTAMP,
+        'order_id': ORDER_ID,
+        'hpp_customer_email': 'test@example.com',
+        'hpp_customer_phonenumber_mobile': '44|789456123',
+        'hpp_billing_street1': 'Apartment 852',
+        'hpp_billing_street2': 'Complex 741',
+        'hpp_billing_street3': 'House 963',
+        'hpp_billing_city': 'Chicago',
+        'hpp_billing_postalcode': '50001',
+        'hpp_billing_country': '840'
+    }
+
+
 def hpp_request_storage_enabled():
     return {
         'merchant_id': MERCHANT_ID,
