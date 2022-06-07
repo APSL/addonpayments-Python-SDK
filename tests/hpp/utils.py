@@ -34,7 +34,7 @@ def hpp_request_secure2():
         'order_id': ORDER_ID,
         'hpp_customer_email': 'test@example.com',
         'hpp_customer_phonenumber_mobile': '44|789456123',
-        'hpp_billing_street1': 'Apartment 852',
+        'hpp_billing_street1': 'Apartment 852 - ESC.3 2º5',
         'hpp_billing_street2': 'Complex 741',
         'hpp_billing_street3': 'House 963',
         'hpp_billing_city': 'Chicago',
